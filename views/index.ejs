@@ -1,15 +1,15 @@
 <%- include('./partials/header') %>
-<main>
+<!--begin main-->
+<!--content-->
 
-hallo wereld
-
+<section class="home-content">
 <% items.forEach(function(item) { %>
-    <article>
-        <p><%= item.title %></p>
-    </article>
+  <article class="home-items">
+      <p><%= item.title %></p>
+   </article>
 <% }) %>
+</section>
 
 
-</main>
-
+<!--einde main-->
 <%- include('./partials/footer') %>

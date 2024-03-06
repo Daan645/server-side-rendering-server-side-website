@@ -1,0 +1,53 @@
+:root{
+/*kleuren*/
+    --main-color: #ffff;
+    --secondary-color: #e30613;
+    --tertairy-color: black;
+    /*font*/
+    --font-family: sans-serif;
+    --font-size-h1: 2em;
+    --font-size-h2: 1.5em;
+    --font-size-text: 1.2em;
+    --font-size-small: 1em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+/*components*/
+ul {
+    list-style-type: none;
+    font-size: var(--font-size-text);
+    margin-top: 2em;
+}
+
+a {
+    color: var(--tertairy-color);
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+/*fonts*/
+h1 {
+    font-size: var(--font-size-h1);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+p, button {
+    font-size: var(--font-size-text);
+}
+
+
+
+
+

@@ -1,3 +1,60 @@
-* {
-    color: pink;
+/*header*/
+nav {
+    padding: 0.5em;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav img {
+
+}
+
+nav button{
+    border: none;
+    background-color: var(--main-color);
+}
+
+a {
+  margin: auto;
+}
+
+/*hero*/
+
+.hero {
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+}
+
+.horizontal-line {
+    border: none; /* Verwijder de standaard rand van de <hr> */
+    background-color: var(--secondary-color); /* Stel de achtergrondkleur in op wit */
+    border-radius: 10px;
+    height: 3px; /* Hoogte van de lijn */
+    width: 90%; /* Breedte van de lijn, in dit geval 90% van de container */
+    margin: 0 auto; /* Plaats de lijn in het midden van de container */
+    box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 1em;
+}
+
+/*content*/
+.home-content {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: minmax(200px, auto); /* Vaste hoogte van 200px voor alle rijen */
+    grid-gap: 5em; /* Optioneel: voeg ruimte toe tussen de kolommen */
+    padding: 0; /* Reset de padding */
+}
+
+.home-items {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    position: relative;
+    background: red;
+    border-radius: 10px;
+    height: 17em; /* Verminder de padding */
+    box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 90%;
 }
