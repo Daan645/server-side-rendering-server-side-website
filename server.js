@@ -30,6 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 //routes
+// index GET route
 app.get('/', function (request, response) {
     fetchJson(items).then((items) => {
         // apiData bevat gegevens van alle personen uit alle squads
@@ -43,6 +44,21 @@ app.get('/', function (request, response) {
             items: items.data})
     })
 })
+
+// Details GET route
+app.get('/detail/:id', function (request, response) {
+    // Gebruik de request parameter id en haal de juiste persoon uit de WHOIS API op
+    fetchJson(apiUrl + '/oba_item/' + request.params.id).then((items) => {
+        // Plaats de console.log hier om de items te bekijken
+        console.log(items);
+
+        // Render person.ejs uit de views map en geef de opgehaalde data mee als variable, genaamd person
+        response.render('detail', {
+            items: items.data
+        });
+    });
+});
+
 
 
 

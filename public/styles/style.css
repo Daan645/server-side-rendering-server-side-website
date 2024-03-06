@@ -52,9 +52,19 @@ a {
     justify-content: center;
     list-style-type: none;
     position: relative;
-    background: red;
     border-radius: 10px;
-    height: 17em; /* Verminder de padding */
+    height: 29em; /* Verminder de padding */
     box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 90%;
+    width: 20em;
+
+    background-size: 100% auto; /* 100% breedte, automatische hoogte */
+    background-repeat: no-repeat; /* Voorkomt dat de achtergrondafbeelding herhaalt */
+    background-position: center; /* Plaatst de achtergrondafbeelding in het midden van het element */
 }
+
+.home-items a {
+    display: block;
+    width: 100%;
+}
+
+
