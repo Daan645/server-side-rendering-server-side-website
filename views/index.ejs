@@ -1,0 +1,15 @@
+<%- include('./partials/header') %>
+<main>
+
+hallo wereld
+
+<% items.forEach(function(item) { %>
+    <article>
+        <p><%= item.title %></p>
+    </article>
+<% }) %>
+
+
+</main>
+
+<%- include('./partials/footer') %>
