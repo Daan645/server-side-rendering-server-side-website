@@ -64,10 +64,17 @@ a {
     background-position: center; /* Plaatst de achtergrondafbeelding in het midden van het element */
 }
 
+.home-items:hover {
+    scale: 1.15;
+    transform: translateY(-0.5em);
+    transition: 0.2s ease-in-out;
+}
+
 .home-items a {
     display: block;
     width: 100%;
 }
+
 
 
 /*Detail pagina*/
