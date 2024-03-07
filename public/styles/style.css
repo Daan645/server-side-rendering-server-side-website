@@ -1,4 +1,4 @@
-/*header*/
+/* Partials header*/
 nav {
     padding: 0.5em;
     display: flex;
@@ -17,6 +17,8 @@ nav button{
 a {
   margin: auto;
 }
+
+/*home pagina*/
 
 /*hero*/
 
@@ -65,6 +67,70 @@ a {
 .home-items a {
     display: block;
     width: 100%;
+}
+
+
+/*Detail pagina*/
+
+.details-grid-container {
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+.description h2 {
+    margin: 1em;
+}
+
+.description p {
+    margin: 1.5em;
+}
+
+.details-button {
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+    height: 2.5em;
+    color: var(--main-color);
+}
+
+.details {
+    display: none;
+    padding: 1em;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 90%;
+    text-align: left;
+
+}
+
+.details-active {
+    display: block;
+}
+
+.details p {
+    margin: 0.5em;
+}
+
+.details strong {
+    color: var(--secondary-color);
+}
+.book-details {
+    display: none;
+}
+
+.cd-details {
+    display: none;
+}
+
+.activity-details {
+    display: none;
+}
+
+.empty-details {
+    display: none;
 }
 
 

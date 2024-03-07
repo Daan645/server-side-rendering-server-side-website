@@ -1,3 +1,76 @@
-<%= items.id %>
-<%= items.title %>
+<%- include('./partials/header') %>
+<div class="details-grid-container">
+    <img src="https://fdnd-agency.directus.app/assets/<%= items.afbeelding %>">
+    <article class="description">
+        <h2>Omschrijving</h2>
+        <hr class="horizontal-line">
+        <%- items.description %>
+    </article>
+    <button class="details-button">Details</button>
+    <article class="details">
+        <div class="book-details">
+        <p><strong>Uitgever:</strong> <%= items.publisher %></p>
+        <p><strong>Auteur:</strong> <%= items.auteur %></p>
+        <p><strong>Genre:</strong> <%= items.genre %></p>
+        <p><strong>Taal:</strong> <%= items.language %></p>
+        <p><strong>Editie:</strong> <%= items.editie %></p>
+        <p><strong>Prijs:</strong> <%= items.price %></p>
+        <p><strong>ISBN Nummer:</strong> <%= items.ISBN %></p>
+        </div>
+            <div class="cd-details">
+                <p><strong>Uitgever:</strong> <%= items.publisher %></p>
+                <p><strong>Auteur:</strong> <%= items.auteur %></p>
+                <p><strong>Genre:</strong> <%= items.genre %></p>
+                <p><strong>Taal:</strong> <%= items.language %></p>
+                <p><strong>Editie:</strong> <%= items.editie %></p>
+                <p><strong>Prijs:</strong> <%= items.price %></p>
+            </div>
+        <div class="activity-details">
+            <p><strong>Datum en tijd:</strong> <%= items.datetime %></p>
+            <p><strong>Locatie:</strong> <%= items.location %></p>
+            <p><strong>Prijs:</strong> <%= items.price %></p>
+        </div>
+        <div class="empty-details">
+            <p><strong>Er is helaas geen informatie beschikbaar...</strong></p>
+        </div>
+    </article>
+</div>
+<%- include('./partials/footer') %>
+
+<script>
+    // Functie voor het verbergen van details
+    function detailsNonActive() {
+        detailsCheck = false;
+        details.classList.remove('details-active');
+        detailsButton.style.borderBottomLeftRadius = '10px';
+        detailsButton.style.borderBottomRightRadius = '10px';
+
+    }
+
+    // functie voor de juiste details
+    let type = '<%= items.item_type %>';
+    const bookDetails = document.querySelector('.book-details');
+    const cdDetails = document.querySelector('.cd-details');
+    const activityDetails = document.querySelector('.activity-details');
+    const emptyDetails = document.querySelector('.empty-details');
+console.log(type);
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Voer de show-functie uit wanneer de DOM is geladen
+        show();
+    });
+
+
+
+function show() {
+        if (type === 'book')
+        bookDetails.style.display = 'block';
+    } if (type === 'cd') {
+        cdDetails.style.display = 'block';
+    } if (type === 'activity') {
+        activityDetails.style.display = 'block';
+    } else {
+
+    }
+</script>
 
