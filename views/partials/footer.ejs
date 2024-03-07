@@ -5,3 +5,26 @@
 </footer>
 </body>
 </html>
+
+<script>
+<!--functie voor het kiezen van een titel op de header-->
+    let headerTitleText = '<%= items.title %>';
+    const headerTitle = document.getElementById('headerTitle');
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Voer de show-functie uit wanneer de DOM is geladen
+        setHeaderTitle();
+    });
+
+
+    function setHeaderTitle() {
+        if (headerTitleText === '') {
+            headerTitleText = pagina;
+            headerTitle.innerHTML = 'U bevindt zich op: ' + headerTitleText;
+        } else {
+            headerTitleText = '<%= items.title %>'
+            headerTitle.innerHTML = 'U bekijkt: ' + headerTitleText;
+        }
+
+    }
+</script>
