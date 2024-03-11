@@ -11,6 +11,8 @@ import express, {response} from 'express'
 // Stel het basis endpoint in
 const apiUrl = 'https://fdnd-agency.directus.app/items'
 const items = apiUrl + '/oba_item'
+const families = apiUrl + '/oba_family'
+const profiles = apiUrl + '/oba_profile'
 
 // Maak een nieuwe express app aan
 const app = express()
@@ -59,7 +61,44 @@ app.get('/detail/:id', function (request, response) {
     });
 });
 
+// chooseprofile GET route
+// chooseProfile GET route
+app.get('/chooseProfile', function (request, response) {
+    // Maak twee afzonderlijke fetch-aanroepen naar families en profiles
+    Promise.all([fetchJson(families), fetchJson(profiles)])
+        .then(([families, profiles]) => {
+            // families en profiles bevatten de opgehaalde data van de API
+            // Je kunt hier de gewenste bewerkingen uitvoeren voordat je ze doorgeeft aan de view
+            console.log(families);
+            console.log(profiles);
 
+            // Render de chooseProfile view en geef de opgehaalde data mee
+            response.render('chooseProfile', {
+                families: families.data,
+                profiles: profiles.data
+            });
+        })
+        .catch((error) => {
+            // Behandel eventuele fouten die optreden tijdens het ophalen van de data
+            console.error('Error fetching data:', error);
+            // Stuur een foutbericht naar de client
+            response.status(500).send('Error fetching data');
+        });
+});
+
+// Personal GET route
+app.get('/personal/:id', function (request, response) {
+    // Gebruik de request parameter id en haal de juiste persoon uit de WHOIS API op
+    fetchJson(apiUrl + '/oba_item/' + request.params.id).then((items) => {
+        // Plaats de console.log hier om de items te bekijken
+        console.log(items);
+
+        // Render person.ejs uit de views map en geef de opgehaalde data mee als variable, genaamd person
+        response.render('personal', {
+            items: items.data
+        });
+    });
+});
 
 
 // 3. Start de webserver
