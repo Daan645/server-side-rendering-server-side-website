@@ -197,16 +197,58 @@ a {
     }
 
     50% {
-        transform: translateY(2em);
+        transform: translateY(1em);
     }
 
     100%{
         transform: translateY(0em);
     }
+}
 
+@keyframes button-grow {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(0.8);
+    }
+}
 
+.buttonGrow {
+    animation: button-grow 1s ease-out;
 }
 
 
+/* personal */
+.scroll-carousel {
+    max-height: 120px;
+    border: 1px solid #ddd;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden; /* verticale scroll uitzetten */
+}
 
+.scroll-carousel::-webkit-scrollbar {
+    width: 10px; /* breedte van de scrollbalk */
+}
 
+.scroll-carousel::-webkit-scrollbar-track {
+    background: #f1f1f1; /* achtergrondkleur van de track */
+}
+
+.scroll-carousel::-webkit-scrollbar-thumb {
+    background: #888; /* kleur van de thumb */
+    border-radius: 5px; /* afgeronde hoeken van de thumb */
+}
+
+.scroll-carousel .item {
+    min-width: 110px;
+    height: 110px;
+    line-height: 110px;
+    text-align: center;
+    background-color: #ddd;
+    margin-right: 2px;
+}
