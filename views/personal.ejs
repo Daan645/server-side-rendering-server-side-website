@@ -1,21 +1,37 @@
 <%- include('./partials/header') %>
 
-
+<h2>Boeken</h2>
 <section class="scroll-carousel">
-<div class="item">box</div>
-<div class="item">box</div>
-<div class="item">box</div>
-<div class="item">box</div>
-<div class="item">box</div>
-<div class="item">box</div>
-<div class="item">box</div>
-<div class="item">box</div>
-<div class="item">box</div>
-<div class="item">box</div>
-<div class="item">box</div>
-<div class="item">box</div>
-<div class="item">box</div>
-<div class="item">box</div>
-<div class="item">box</div>
-<div class="item">box</div>
+
+    <% items.forEach(function(item) { %>
+        <article class="item">
+            <h2 hidden="hidden"> <%= item.title %></h2>
+            <img src="https://fdnd-agency.directus.app/assets/<%= item.afbeelding %>">
+            <a href="/detail/<%= item.id %>"></a>
+        </article>
+    <% }) %>
+</section>
+
+<h2>CD's</h2>
+<section class="scroll-carousel">
+
+    <% items.forEach(function(item) { %>
+        <article class="item">
+            <h2 hidden="hidden"> <%= item.title %></h2>
+            <img src="https://fdnd-agency.directus.app/assets/<%= item.afbeelding %>">
+            <a href="/detail/<%= item.id %>"></a>
+        </article>
+    <% }) %>
+</section>
+
+<h2>Activiteiten</h2>
+<section class="scroll-carousel">
+
+    <% items.forEach(function(item) { %>
+        <article class="item">
+            <h2 hidden="hidden"> <%= item.title %></h2>
+            <img src="https://fdnd-agency.directus.app/assets/<%= item.afbeelding %>">
+            <a href="/detail/<%= item.id %>"></a>
+        </article>
+    <% }) %>
 </section>

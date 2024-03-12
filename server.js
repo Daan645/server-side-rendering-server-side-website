@@ -89,9 +89,8 @@ app.get('/chooseProfile', function (request, response) {
 // Personal GET route
 app.get('/personal/:id', function (request, response) {
     // Gebruik de request parameter id en haal de juiste persoon uit de WHOIS API op
-    fetchJson(apiUrl + '/oba_item/' + request.params.id).then((items) => {
+    fetchJson(items).then((items) => {
         // Plaats de console.log hier om de items te bekijken
-        console.log(items);
 
         // Render person.ejs uit de views map en geef de opgehaalde data mee als variable, genaamd person
         response.render('personal', {
