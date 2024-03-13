@@ -38,37 +38,44 @@
 <%- include('./partials/footer') %>
 
 <script>
-    // Functie voor het verbergen van details
-    function detailsNonActive() {
-        detailsCheck = false;
-        details.classList.remove('details-active');
-        detailsButton.style.borderBottomLeftRadius = '10px';
-        detailsButton.style.borderBottomRightRadius = '10px';
-
-    }
-
-    // functie voor de juiste details
+    const detailsButton = document.querySelector('.details-button');
+    const details = document.querySelector('.details');
+    let detailsCheck = false;
     let type = '<%= items.item_type %>';
     const bookDetails = document.querySelector('.book-details');
     const cdDetails = document.querySelector('.cd-details');
     const activityDetails = document.querySelector('.activity-details');
     const emptyDetails = document.querySelector('.empty-details');
-console.log(type);
 
-    document.addEventListener('DOMContentLoaded', function() {
-        // Voer de show-functie uit wanneer de DOM is geladen
-        show();
+    detailsButton.addEventListener('click', function() {
+        if (detailsCheck === false) {
+            detailsActive();
+            show();
+        } else {
+            detailsNonActive();
+        }
     });
 
-    function show() {
-        if (type === 'book')
-        bookDetails.style.display = 'block';
-    } if (type === 'cd') {
-        cdDetails.style.display = 'block';
-    } if (type === 'activity') {
-        activityDetails.style.display = 'block';
-    } else {
+    function detailsActive() {
+        detailsCheck = true;
+        details.classList.add('details-active');
+    }
 
+    function detailsNonActive() {
+        detailsCheck = false;
+        details.classList.remove('details-active');
+    }
+
+    function show() {
+        if (type === 'book') {
+            bookDetails.style.display = 'block';
+        } else if (type === 'cd') {
+            cdDetails.style.display = 'block';
+        } else if (type === 'activity') {
+            activityDetails.style.display = 'block';
+        } else {
+            emptyDetails.style.display = 'block';
+        }
     }
 </script>
 
