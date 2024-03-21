@@ -30,6 +30,10 @@ app.use(express.static('public'))
 // Zorg dat werken met request data makkelijker wordt
 app.use(express.urlencoded({ extended: true }));
 
+// Middleware toevoegen om JSON-gegevens van het formulier te parsen
+app.use(express.json());
+
+let reviews = [];
 
 //routes
 // index GET route
@@ -56,10 +60,29 @@ app.get('/detail/:id', function (request, response) {
 
         // Render person.ejs uit de views map en geef de opgehaalde data mee als variable, genaamd person
         response.render('detail', {
-            items: items.data
+            items: items.data,
+            reviews: reviews
         });
     });
 });
+
+// post
+app.post('/submit-review', function(req, res) {
+    try {
+        // Haal de ingediende recentiegegevens op uit het formulier
+        const { name, message } = req.body;
+
+        // Voeg de recentie toe aan de array
+        reviews.push({ name, message });
+
+        // Stuur een succesbericht terug naar de client
+        res.send('Recentie succesvol toegevoegd!');
+    } catch (error) {
+        console.error('Fout bij het verwerken van het recentieformulier:', error);
+        res.status(500).send('Er is een interne serverfout opgetreden bij het verwerken van het recentieformulier.');
+    }
+});
+
 
 // chooseprofile GET route
 // chooseProfile GET route

@@ -34,6 +34,30 @@
             <p><strong>Er is helaas geen informatie beschikbaar...</strong></p>
         </div>
     </article>
+
+    <section class="reviews">
+        <h2>Recenties</h2>
+        <article class="review-item">
+            <ul>
+                <% reviews.forEach(review => { %>
+                    <li><strong><%= review.name %>:</strong> <%= review.message %></li>
+                <% }) %>
+            </ul>
+        </article>
+        <button id="toggle-review">Plaats recentie</button>
+    </section>
+
+    <dialog id="review-pop-up">
+        <form id="review-form" action="/submit-review" method="POST">
+            <h2>Plaats een recentie</h2>
+            <label for="review-name">Naam:</label>
+            <input id="review-name" type="text" name="name" placeholder="Voer hier uw naam in" required>
+            <label for="review-message">Bericht:</label>
+            <textarea id="review-message" name="message" placeholder="Typ hier uw bericht" required></textarea>
+            <button id="review-submit" type="submit">Plaats recentie</button>
+        </form>
+    </dialog>
+
 </div>
 <%- include('./partials/footer') %>
 
@@ -77,5 +101,50 @@
             emptyDetails.style.display = 'block';
         }
     }
+
+    // review function op detail pagina
+    const toggleReviewButton = document.getElementById('toggle-review');
+    const reviewPopUp = document.getElementById('review-pop-up');
+    let reviewCheck = false;
+
+    toggleReviewButton.addEventListener('click', function () {
+        reviewActive();
+        console.log('click')
+    })
+
+    function reviewActive() {
+        reviewCheck = true;
+        reviewPopUp.style.display = 'block';
+        console.log('yooo');
+    }
+
+    //form
+    document.getElementById('review-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Voorkom standaardgedrag van het formulier (pagina vernieuwen)
+
+        // Verzend de recentiegegevens naar de server met een POST-verzoek
+        fetch('/submit-review', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: document.getElementById('review-name').value,
+                message: document.getElementById('review-message').value
+            })
+        })
+            .then(response => {
+                if (response.ok) {
+                    // Als de recentie succesvol is toegevoegd, herlaad dan de pagina
+                    window.location.reload();
+                } else {
+                    // Als er een fout optreedt, geef dan een foutmelding weer
+                    alert('Er is een fout opgetreden bij het toevoegen van de recentie.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
 </script>
 

@@ -32,6 +32,23 @@ a {
 
 button {
     cursor: pointer;
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 10px;
+    width: 10em;
+    height: 2.5em;
+    color: var(--main-color);
+    transition: transform 0.1s ease-in;
+    margin: 1em;
+}
+
+button:hover {
+    transform: scale(1.1) ;
+}
+
+button:focus {
+    outline: 3px solid red; /* Rode omlijning bij focus */
+    outline-offset: 5px;
 }
 
 /*fonts*/

@@ -96,12 +96,7 @@ a {
 }
 
 .details-button {
-    background-color: var(--secondary-color);
-    border: none;
-    border-radius: 10px;
     width: 90%;
-    height: 2.5em;
-    color: var(--main-color);
 }
 
 .details {
@@ -142,8 +137,57 @@ a {
     display: none;
 }
 
+.reviews {
+    display: flex;
+    flex-direction: column;
 
-/*choosprofile style*/
+}
+
+#review-pop-up {
+    border-radius: 2%;
+}
+
+#review-pop-up h2 {
+    margin-bottom: 1em;
+
+}
+
+#review-pop-up form {
+    display: flex;
+  flex-direction: column;
+    margin: 2em;
+    width: 40em;
+    height: 40em;
+    font-weight: bold;
+
+  }
+
+#review-pop-up label {
+ font-weight: bold;
+    text-align: left;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+#review-pop-up form input,
+#review-pop-up form textarea {
+    width: 100%; /* Gebruik de volledige breedte van de container */
+    padding: 10px; /* Voeg wat padding toe voor een betere leesbaarheid */
+    margin-bottom: 15px; /* Voeg wat ruimte toe tussen de velden */
+    resize: vertical; /* Sta verticale resizing van de textarea toe */
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#review-pop-up form input {
+    height: 10%;
+}
+
+#review-pop-up form textarea {
+    height: 60%;
+}
+
+    /*choosprofile style*/
 .choose-profile-content-container {
     display: flex;
     align-items: center;
