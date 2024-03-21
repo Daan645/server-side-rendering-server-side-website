@@ -9,22 +9,22 @@
     <button class="details-button">Details</button>
     <article class="details">
         <div class="book-details">
-        <p><strong>Uitgever:</strong> <%= items.publisher %></p>
-        <p><strong>Auteur:</strong> <%= items.auteur %></p>
-        <p><strong>Genre:</strong> <%= items.genre %></p>
-        <p><strong>Taal:</strong> <%= items.language %></p>
-        <p><strong>Editie:</strong> <%= items.editie %></p>
-        <p><strong>Prijs:</strong> <%= items.price %></p>
-        <p><strong>ISBN Nummer:</strong> <%= items.ISBN %></p>
+            <p><strong>Uitgever:</strong> <%= items.publisher %></p>
+            <p><strong>Auteur:</strong> <%= items.auteur %></p>
+            <p><strong>Genre:</strong> <%= items.genre %></p>
+            <p><strong>Taal:</strong> <%= items.language %></p>
+            <p><strong>Editie:</strong> <%= items.editie %></p>
+            <p><strong>Prijs:</strong> <%= items.price %></p>
+            <p><strong>ISBN Nummer:</strong> <%= items.ISBN %></p>
         </div>
-            <div class="cd-details">
-                <p><strong>Uitgever:</strong> <%= items.publisher %></p>
-                <p><strong>Auteur:</strong> <%= items.auteur %></p>
-                <p><strong>Genre:</strong> <%= items.genre %></p>
-                <p><strong>Taal:</strong> <%= items.language %></p>
-                <p><strong>Editie:</strong> <%= items.editie %></p>
-                <p><strong>Prijs:</strong> <%= items.price %></p>
-            </div>
+        <div class="cd-details">
+            <p><strong>Uitgever:</strong> <%= items.publisher %></p>
+            <p><strong>Auteur:</strong> <%= items.auteur %></p>
+            <p><strong>Genre:</strong> <%= items.genre %></p>
+            <p><strong>Taal:</strong> <%= items.language %></p>
+            <p><strong>Editie:</strong> <%= items.editie %></p>
+            <p><strong>Prijs:</strong> <%= items.price %></p>
+        </div>
         <div class="activity-details">
             <p><strong>Datum en tijd:</strong> <%= items.datetime %></p>
             <p><strong>Locatie:</strong> <%= items.location %></p>
@@ -47,7 +47,7 @@
     const activityDetails = document.querySelector('.activity-details');
     const emptyDetails = document.querySelector('.empty-details');
 
-    detailsButton.addEventListener('click', function() {
+    detailsButton.addEventListener('click', function () {
         if (detailsCheck === false) {
             detailsActive();
             show();
