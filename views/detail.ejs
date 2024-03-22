@@ -49,7 +49,11 @@
 
     <dialog id="review-pop-up">
         <form id="review-form" action="/submit-review" method="POST">
-            <h2>Plaats een recentie</h2>
+
+            <div class="pop-up-header">
+                <h2>Plaats een recentie</h2>
+                <button id="reviewCloseButton">X</button>
+            </div>
             <label for="review-name">Naam:</label>
             <input id="review-name" type="text" name="name" placeholder="Voer hier uw naam in" required>
             <label for="review-message">Bericht:</label>
@@ -104,18 +108,31 @@
 
     // review function op detail pagina
     const toggleReviewButton = document.getElementById('toggle-review');
+    const closeReviewButton = document.getElementById('reviewCloseButton');
     const reviewPopUp = document.getElementById('review-pop-up');
     let reviewCheck = false;
 
     toggleReviewButton.addEventListener('click', function () {
-        reviewActive();
+        if (reviewCheck === false) {
+            reviewActive();
+        } else {
+            reviewNonActive();
+        }
         console.log('click')
+    })
+
+    closeReviewButton.addEventListener('click', function () {
+      reviewNonActive();
     })
 
     function reviewActive() {
         reviewCheck = true;
         reviewPopUp.style.display = 'block';
-        console.log('yooo');
+    }
+
+    function reviewNonActive(){
+        reviewCheck = false;
+        reviewPopUp.style.display = 'none';
     }
 
     //form

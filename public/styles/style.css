@@ -147,6 +147,19 @@ a {
     border-radius: 2%;
 }
 
+.pop-up-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.pop-up-header button {
+    margin: 0;
+    padding: 0;
+    width: 2em;
+    height: 2em;
+}
+
 #review-pop-up h2 {
     margin-bottom: 1em;
 
