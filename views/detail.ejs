@@ -122,7 +122,7 @@
     })
 
     closeReviewButton.addEventListener('click', function () {
-      reviewNonActive();
+        reviewNonActive();
     })
 
     function reviewActive() {
@@ -130,13 +130,13 @@
         reviewPopUp.style.display = 'block';
     }
 
-    function reviewNonActive(){
+    function reviewNonActive() {
         reviewCheck = false;
         reviewPopUp.style.display = 'none';
     }
 
     //form
-    document.getElementById('review-form').addEventListener('submit', function(event) {
+    document.getElementById('review-form').addEventListener('submit', function (event) {
         event.preventDefault(); // Voorkom standaardgedrag van het formulier (pagina vernieuwen)
 
         // Verzend de recentiegegevens naar de server met een POST-verzoek
